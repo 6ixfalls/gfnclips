@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.region-drag {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+.region-none {
+    -webkit-app-region: no-drag;
+}
+
+::-webkit-scrollbar {
+    @apply w-2;
+}
+::-webkit-scrollbar-track {
+    @apply bg-zinc-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-[#2E2E32] rounded-lg;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-corner {
+    border-right-style: inset;
+    border-right-width: calc(100vw + 100vh);
+    border-color: inherit;
+}

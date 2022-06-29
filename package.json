@@ -2,11 +2,13 @@
   "name": "gfnclips",
   "version": "1.0.0",
   "description": "A game-clips hub using GeForce Shadowplay as a recorder.",
+  "main": "./dist/main.js",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w",
+    "watch": "tailwindcss -i pages/main.css -o pages/tailwind.css --watch",
+    "dev": "npm run build && concurrently \"tsc -w\" \"npm run watch\" \"electron . --dev\"",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "npm run build && electron . --dev"
   },
   "repository": "https://github.com/6ixfalls/gfnclips",
   "keywords": [
@@ -24,7 +26,12 @@
     "@typescript-eslint/parser": "^4.33.0",
     "electron": "^18.2.3",
     "eslint": "^7.32.0",
+    "tailwindcss": "^3.1.4",
     "typescript": "^4.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "concurrently": "^7.2.2",
+    "electron-reload": "^2.0.0-alpha.1",
+    "fluent-ffmpeg": "^2.1.2"
+  }
 }
